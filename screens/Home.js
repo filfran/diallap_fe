@@ -46,7 +46,7 @@ const Home = () => {
         setIsRecording(false);
         const data = await camera.stopRecording();
       } catch (error) {
-        console.error("Error stopping recording:", error);
+        // console.error("Error stopping recording:", error);
       }
     } else {
       try {
@@ -54,7 +54,7 @@ const Home = () => {
         const data = await camera.recordAsync({ maxDuration: 15 });
         setRecord(data.uri);
       } catch (error) {
-        console.error("Error starting recording:", error);
+        // console.error("Error starting recording:", error);
         setIsRecording(false);
       }
     }
@@ -69,7 +69,6 @@ const Home = () => {
         name: "video.mov",
         type: "video/quicktime",
       });
-      console.log("sending");
       const response = await fetch(
         "https://diallapp-demo-2bede93da4f0.herokuapp.com/api/upload",
         {
@@ -81,13 +80,13 @@ const Home = () => {
           body: formData,
         }
       );
-      console.log(JSON.stringify(response));
+      // console.log(JSON.stringify(response));
       navigation.navigate("Success");
 
       if (response.status !== 200)
         throw new Error("Something went wrong.. Please try again");
     } catch (error) {
-      console.log(JSON.stringify(error));
+      // console.log(JSON.stringify(error));
       alert(error.message);
     } finally {
       setUploading(false);
@@ -96,12 +95,10 @@ const Home = () => {
 
   useEffect(() => {
     const user = auth.currentUser;
-    // console.log(user);
     const getUserToken = async () => {
       try {
         const idToken = await user.getIdToken(true);
         setToken(idToken);
-        // console.log("Second Token: " + idToken);
       } catch (error) {
         alert(error.message);
       }
