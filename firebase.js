@@ -1,17 +1,22 @@
-// Import the functions you need from the SDKs you need
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import {
+  FIREBASE_APIKEY,
+  FIREBASE_APPID,
+  FIREBASE_AUTHDOMAIN,
+  FIREBASE_PROJECTID,
+  FIREBASE_STORAGEBUCKET,
+  FIREBASE_MESSAGINGSENDERID,
+} from "@env";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD5A9BGycUiCHreDqbdByaje7vm-CBYEHQ",
-  authDomain: "diallapp-demo.firebaseapp.com",
-  projectId: "diallapp-demo",
-  storageBucket: "diallapp-demo.appspot.com",
-  messagingSenderId: "809872100511",
-  appId: "1:809872100511:web:b7371c665e65e1fe42e6aa",
+  apiKey: FIREBASE_APIKEY,
+  authDomain: FIREBASE_AUTHDOMAIN,
+  projectId: FIREBASE_PROJECTID,
+  storageBucket: FIREBASE_STORAGEBUCKET,
+  messagingSenderId: FIREBASE_MESSAGINGSENDERID,
+  appId: FIREBASE_APPID,
 };
 
 // Initialize Firebase
